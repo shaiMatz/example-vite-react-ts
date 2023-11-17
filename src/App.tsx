@@ -1,12 +1,9 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import WebRenderer from "@wharfkit/web-renderer";
-import React from "react";
-import metamask from "@metamask/onboarding";
-import { useSDK } from "@metamask/sdk-react";
 import { Session } from "@wharfkit/session";
 import { WalletPluginPrivateKey } from "@wharfkit/wallet-plugin-privatekey";
-import { Result } from "ethers";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
 const accountName = "wharfkit1111";
 const permissionName = "test";
@@ -38,21 +35,28 @@ const transferAction = {
 };
 
 const App = () => {
-  let temp;
+  const [transactionId, setTransactionId] = useState(null);
 
   const onClick = async () => {
-    const result = await session.transact({ action: transferAction });
-    temp = result;
+    try {
+      const result = await session.transact({ action: transferAction });
+      const res = result["response"] as any;
+      const transactionId = res.transaction_id;
+      setTransactionId(transactionId);
+      console.log(transactionId);
+    } catch (error) {
+      console.error("Error occurred during transaction:", error);
+    }
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>WharfKit React Demo 123</h1>
-
-        <button onClick={onClick}>Transfer</button>
-
-        {temp}
+        <Button as="a" variant="primary" onClick={onClick}>
+          Transfer
+        </Button>
+        <p className="">{transactionId}</p>
       </header>
     </div>
   );
