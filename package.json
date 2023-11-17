@@ -9,9 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@wharfkit/session": "^1.0.0",
+    "@metamask/detect-provider": "^2.0.0",
+    "@metamask/providers": "^14.0.0",
+    "@metamask/sdk-react": "^0.12.1",
+    "@web3-onboard/metamask": "^2.0.1",
+    "@wharfkit/session": "^1.1.1",
     "@wharfkit/wallet-plugin-anchor": "^1.0.0",
+    "@wharfkit/wallet-plugin-privatekey": "^1.1.0",
     "@wharfkit/web-renderer": "^1.0.0",
+    "ethers": "^6.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
