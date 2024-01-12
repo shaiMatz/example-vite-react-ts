@@ -6,7 +6,7 @@ namespace mycontract {
    using namespace std;
    using namespace eosio;
 
-   class [[eosio::contract]] hello : public eosio::contract {
+   class [[eosio::contract]] Try : public eosio::contract {
         using eosio::contract::contract;
 
         public:
