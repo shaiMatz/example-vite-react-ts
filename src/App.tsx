@@ -14,6 +14,8 @@ import { Account } from "@wharfkit/account";
 import { Permission } from "@wharfkit/account";
 import { ContractKit } from "@wharfkit/contract";
 import Signup from "./Components/signupComp"
+import Setmsg from "./Components/Setmsg"
+
 
 
 
@@ -48,6 +50,7 @@ const client = new APIClient(
   const contractKit = new ContractKit({
   client: client,
 });
+
 const contract = await contractKit.load("votechain111");
 const actionname = contract.actionNames;
 console.log(actionname);
@@ -70,9 +73,12 @@ const App = () => {
           </header>
           <div className="App-body">
             <div className="App-content">
-              <h2>Signup</h2>
+              <h2>Send message</h2>
+              {/* <h2>Signup</h2> */}
 
-              <Signup />
+              {/* <Signup /> */}
+              <Setmsg session={session} contract = {contract}/>
+
             </div>
         </div>
    
