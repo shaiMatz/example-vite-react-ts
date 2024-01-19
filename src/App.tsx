@@ -15,6 +15,7 @@ import { Permission } from "@wharfkit/account";
 import { ContractKit } from "@wharfkit/contract";
 import Signup from "./Components/signupComp"
 import Setmsg from "./Components/Setmsg"
+import ElectionTester from "./Components/ElectionTester"
 
 
 
@@ -77,7 +78,8 @@ const App = () => {
               {/* <h2>Signup</h2> */}
 
               {/* <Signup /> */}
-              <Setmsg session={session} contract = {contract}/>
+              {/* <Setmsg session={session} contract = {contract}/> */}
+              <ElectionTester contract={contract} session={session} />
 
             </div>
         </div>

@@ -17,6 +17,8 @@ const Signup = () => {
       const privateKey = PrivateKey.generate("K1");
       const publicKey = privateKey.toPublic();
       console.log("generated keys");
+      console.log(" publicKey " + publicKey);
+      console.log(" privateKey " + privateKey);
       // API Client
       const client = new APIClient({ url: "https://jungle4.greymass.com" });
       console.log("created client");
@@ -68,40 +70,39 @@ const Signup = () => {
                   waits: [],
                 },
               },
-            },{
-                account: "eosio",
-                name: "buyrambytes",
-                authorization: [
-                    {
-                    actor: "votechain111",
-                    permission: "active",
-                    },
-                ],
-                data: {
-                    payer: "votechain111",
-                    receiver: name,
-                    bytes: 8192,
-                },
-                },
+            },
+            {
+              account: "eosio",
+              name: "buyrambytes",
+              authorization: [
                 {
-                account: "eosio",
-                name: "delegatebw",
-                authorization: [
-                    {
-                    actor: "votechain111",
-                    permission: "active",
-                    },
-                ],
-                data: {
-                    from: "votechain111",
-                    receiver: name,
-                    stake_net_quantity: "1.0000 EOS",
-                    stake_cpu_quantity: "1.0000 EOS",
-                    transfer: false,
+                  actor: "votechain111",
+                  permission: "active",
                 },
-            }
-            
-
+              ],
+              data: {
+                payer: "votechain111",
+                receiver: name,
+                bytes: 8192,
+              },
+            },
+            {
+              account: "eosio",
+              name: "delegatebw",
+              authorization: [
+                {
+                  actor: "votechain111",
+                  permission: "active",
+                },
+              ],
+              data: {
+                from: "votechain111",
+                receiver: name,
+                stake_net_quantity: "1.0000 EOS",
+                stake_cpu_quantity: "1.0000 EOS",
+                transfer: false,
+              },
+            },
           ],
         },
         {
